@@ -16,41 +16,55 @@
   <body>
     <main>
       <h1>Privacy policy</h1>
-      <p class="meta">Family Wall · effective 21 September 2026</p>
+      <p class="meta">Family Wall · effective 21 September 2026 · updated 24 October 2026</p>
 
       <h2>What this app is</h2>
       <p>
-        Family Wall is a personal, self-hosted app used by a single household. It runs on a computer in that
+        Family Wall is a personal, self-hosted app used by a single household. It runs on computers in that
         household's home and is not offered to the public.
       </p>
 
       <h2>What it accesses</h2>
       <p>
-        With the account owner's consent, the app uses Google's Calendar API with read-only access
-        (<code>calendar.readonly</code>) to read calendars and events visible to one Google account controlled
-        by the household. It cannot create, change or delete anything in Google Calendar.
+        <strong>Calendar and email (the household's wall account).</strong> With the account owner's consent, the
+        app uses one Google account controlled by the household. It uses Google's Calendar API
+        (<code>calendar.readonly</code>, <code>calendar.events</code>) to read that account's calendars and to
+        create, change and delete events on them when a household member asks it to, and Gmail
+        (<code>gmail.modify</code>, <code>gmail.send</code>) to read the messages household members send to that
+        account, label them as handled, and reply with a receipt.
+      </p>
+      <p>
+        <strong>Home controls (Google Nest).</strong> On the household's kitchen display, the app can also show and
+        control the household's own Google Nest devices, such as the thermostat. With the account owner's consent
+        it uses Google's Smart Device Management API to read those devices' status and change their settings, and
+        Google Cloud Pub/Sub to receive their status updates.
       </p>
 
       <h2>How the data is used</h2>
       <p>
-        Calendar events are used for one purpose: showing them on the household's own display and on the
-        household's own devices on its home network. Events are cached in a database on the household's
-        computer so the display keeps working when the internet is unavailable.
+        Calendar events are used to show them on the household's own displays and on household members' phones
+        through a private, sign-in-protected connection. Messages household members send to the wall account are
+        read to carry out what they ask (for example adding an event or a grocery item). To do that, the text and
+        attachments of those messages are sent to an AI model provider (Meta), and the titles of events on a shared
+        family calendar are sent to an AI classification service (TypeSafe AI) to decide which family member each
+        event is for; these providers process the data only to return the result. Nest device data is used only to
+        show and control those devices on the household's own displays. Events and a record of handled messages
+        are kept in a database on the household's computer so the display keeps working without the internet.
       </p>
 
       <h2>Sharing</h2>
       <p>
-        Data read from Google is not sold, not shared with third parties, not used for advertising, and not
-        sent to any server operated by the developer or anyone else. It never leaves the household's own
-        computer and home network.
+        Data read from Google is not sold, not used for advertising, and not sent to any server operated by the
+        developer. Apart from the AI processing described above, it is not shared with third parties. Sign-in
+        tokens are stored only on the household's own computers.
       </p>
 
       <h2>Retention and removal</h2>
       <p>
-        Cached events are replaced on every sync and cover a rolling window of a few months. Access can be
+        Cached events are replaced on every sync and cover a rolling window of about a year. Access can be
         revoked at any time at
         <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>; deleting the
-        app's data folder removes everything it has stored.
+        app's data folders removes everything it has stored.
       </p>
 
       <h2>Google API Services User Data Policy</h2>
